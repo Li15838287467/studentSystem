@@ -1,0 +1,64 @@
+.header {
+	width: 960px;
+	margin: 0 auto;
+	height: 97px;
+}
+.logo {
+	height: 35px;
+	padding-left: 35px;
+	padding-top: 35px;
+	font: 30px/35px '黑体';
+	/* 文字首行缩进
+	text-indent: 40px; */
+	background-image: url('../image/logo.png');
+	/* 图片不重复 */
+	background-repeat: no-repeat;
+	background-position: 0 35px;
+	background-size: 35px;
+}
+/* header end */
+.main {
+	width: 100%;
+	height: 400px;
+	margin-top: 35px;
+	background: #2980b6 url(../image/map.jpg) no-repeat center center;
+}
+.main-box {
+	width: 960px;
+	height: 360px;
+	padding-top: 40px;
+	margin: 0 auto;
+}
+.login-box {
+	width: 260px;
+	height: 280px;
+	padding: 20px;
+	background-color: #fff;
+	margin-left: 610px;
+	box-shadow: #666 0 0 3px;
+}
+.login-box input {
+  border: solid 1px #cbced0;
+  height: 36px;
+  margin-top: 20px;
+  padding-left: 10px;
+  width: 248px;
+
+}
+.login-box input.submit {
+  background: #3fb3b2;
+  border: none;
+  cursor: pointer;
+  font: 18px/40px "微软雅黑";
+  margin-top: 20px;
+  height: 40px;
+  width: 260px;
+  color: #ffffff;
+}
+/* main end */
+.footer-content {
+	color: #888;
+	padding-top: 20px;
+	font-size: 12px;
+	text-align: center;
+}
