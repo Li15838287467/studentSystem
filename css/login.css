@@ -1,26 +1,27 @@
+body {
+    color: #333;
+    font: 12px/22px "微软雅黑";
+}
 .header {
 	width: 960px;
 	margin: 0 auto;
 	height: 97px;
 }
 .logo {
+	width: 240px;
 	height: 35px;
 	padding-left: 35px;
 	padding-top: 35px;
 	font: 30px/35px '黑体';
 	/* 文字首行缩进
 	text-indent: 40px; */
-	background-image: url('../image/logo.png');
-	/* 图片不重复 */
-	background-repeat: no-repeat;
-	background-position: 0 35px;
+    background: url(../image/logo.png) no-repeat left center;
 	background-size: 35px;
+    color: #515151;
 }
 /* header end */
 .main {
-	width: 100%;
 	height: 400px;
-	margin-top: 35px;
 	background: #2980b6 url(../image/map.jpg) no-repeat center center;
 }
 .main-box {
@@ -37,7 +38,7 @@
 	margin-left: 610px;
 	box-shadow: #666 0 0 3px;
 }
-.login-box input {
+.textBorder {
   border: solid 1px #cbced0;
   height: 36px;
   margin-top: 20px;
@@ -45,7 +46,7 @@
   width: 248px;
 
 }
-.login-box input.submit {
+#login {
   background: #3fb3b2;
   border: none;
   cursor: pointer;
@@ -55,10 +56,31 @@
   width: 260px;
   color: #ffffff;
 }
+#mpanel1 {
+    padding-top: 20px;
+}
+.verify-code {
+    float: right;
+    margin-top: 5px;
+    margin-right: 20px;
+}
+.verify-code-area {
+    width: 90px !important;
+    /* height: 30px; */
+    float: left;
+    /* margin-left: 10px; */
+    margin-top: 5px;
+}
+.varify-input-code {
+    width: 140px;
+    height: 30px;
+}
+.verify-code-area .verify-change-code {
+    display: none;
+}
 /* main end */
 .footer-content {
 	color: #888;
 	padding-top: 20px;
-	font-size: 12px;
 	text-align: center;
 }
