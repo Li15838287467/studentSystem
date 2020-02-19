@@ -2,13 +2,136 @@
 <html lang="en">
 
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>学校班级管理系统管理平台</title>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/jquery-3.3.1.min.js"></script>
+  <script src="./js/bootstrap.js"></script>
 </head>
-
 <body>
+	<div class="navbar navbar-default n-header" role="navigation">
+    <div class="container-fluid n-header-wrapper">
+      <a href="#" class="navbar-brand jx-logo">
+        <img src="./image/logo2.jpg" alt="">
+      </a>
+      <ul class="nav navbar-nav nav-items">
+        <li>
+          <a class="nav-item" href="#" data-toggle="modal" data-target="#infoModal">消息</a>
+        </li>
+        <li>
+          <a class="nav-item" href="#" data-toggle="modal" data-target="#setModal">设置</a>
+        </li>
+        <li class="dropdown">
+          <a class="nav-item dropdown-toggle" href="#" data-toggle="dropdown">
+            <span>安全退出</span>
+            <b class="caret"></b>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+              <a href="login.html">退出</a>
+            </li>
+            <li>
+              <a href="#">注销</a>
+            </li>
+            <li>
+              <a href="#">切换账号</a>
+            </li>
+            <li class="divider"></li>
+           <li>
+              <a href="#">帮助</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div style="clear: both;"></div>
+  <!-- 顶部导航栏结束 -->
+  <div class="main">
+    <div class="container-fluid main-center">
+      <div class="row main-row">
+        <div class="col-md-2 left">
+          <div class="current-user">
+            <span>当前用户:</span>
+            <span class="uname"></span>
+          </div>
+          <div class="class-div">
+            <ul class="class-list"></ul>
+          </div>
+        </div>
+        <div class="col-md-10 right">
+          right
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 消息Modal -->
+  <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="infoModalLabel">站内信</h4>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li><a href="#">【系统消息】您已被选中花呗免还款！</a></li>
+            <li><a href="#">【系统消息】您已被选中信用卡免还款！</a></li>
+            <li><a href="#">【警方提示】勿信虚假消息！</a></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 设置Modal -->
+  <div class="modal fade" id="setModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="setModalLabel">系统设置</h4>
+        </div>
+        <div class="modal-body">
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <script>
+    $(function () {
+      var uname = localStorage.getItem('USERID');
+      $('.uname').html(uname);
+      
+      var classArr = ['软信1班','移动1班','网销1班'];
+      var liContent = '';
+      for (var i=0; i < classArr.length; i ++) {
+        liContent += '<li>' + classArr[i] + '</li>';
+      }
+      $('.class-list').html(liContent);
 
+      var classItem = $('.class-list li');
+      $(classItem).click(function () {
+        classItem.removeClass('active');
+        $(this).addClass('active');
+      })
+      
+    })
+  </script>
 </body>
 
 </html>
