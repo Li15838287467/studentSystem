@@ -10,12 +10,14 @@
   <link rel="stylesheet" href="./css/index.css">
   <script src="./js/jquery-3.3.1.min.js"></script>
   <script src="./js/bootstrap.js"></script>
+  <script src="./js/ls.js"></script>
+  <script src="./js/json.js"></script>
 </head>
 <body>
 	<div class="navbar navbar-default n-header" role="navigation">
     <div class="container-fluid n-header-wrapper">
       <a href="#" class="navbar-brand jx-logo">
-        <img src="./image/logo2.jpg" alt="">
+        <img src="./image/logo2.jpg" alt="学生管理系统">
       </a>
       <ul class="nav navbar-nav nav-items">
         <li>
@@ -49,10 +51,11 @@
     </div>
   </div>
   <div style="clear: both;"></div>
-  <!-- 顶部导航栏结束 -->
+  <!-- 顶部导航栏end -->
   <div class="main">
     <div class="container-fluid main-center">
       <div class="row main-row">
+        <!-- 左侧start -->
         <div class="col-md-2 left">
           <div class="current-user">
             <span>当前用户:</span>
@@ -62,12 +65,61 @@
             <ul class="class-list"></ul>
           </div>
         </div>
+        <!-- 右侧start -->
         <div class="col-md-10 right">
-          right
+          <div class="right-content">
+            <!-- 导航栏 -->
+            <div class="right-header"></div>
+            <!-- 班级和搜索框 -->
+            <div class="right-info">
+              <div class="col-md-8 right-class-name"></div>
+              <div class="col-md-4">
+                <div class="searchBox fr">
+                  <div class="searchInput fl">
+                    <input type="text" placeholder="用户名">
+                  </div>
+                  <div class="searchBtn fl">
+                    <input type="submit">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- 按钮组 -->
+            <div class="col-md-12">
+              <div class="right-btns">
+                <button class="btn btn-default">添加</button>
+                <button class="btn btn-info">编辑</button>
+                <button class="btn btn-danger">删除</button>
+                <button class="btn btn-success">账号授权</button>
+              </div>
+            </div>
+            <!-- 学生信息 -->
+            <div class="col-md-12">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th style="width: 2%;">
+                      <input type="checkbox">
+                    </th>
+                    <th style="width: 10%;">姓名</th>
+                    <th style="width: 10%;">学号</th>
+                    <th style="width: 15%;">手机号</th>
+                    <th style="width: 8%;">性别</th>
+                    <th style="width: 8%;">年龄</th>
+                    <th style="width: 20%;">专业</th>
+                    <th style="width: 27%;">操作</th>
+                  </tr>
+                </thead>
+                <tbody class="student-info"></tbody>
+              </table>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
+  <!-- 布局end -->
+
   <!-- 消息Modal -->
   <div class="modal fade" id="infoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -90,6 +142,7 @@
       </div>
     </div>
   </div>
+
   <!-- 设置Modal -->
   <div class="modal fade" id="setModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog" role="document">
@@ -112,26 +165,104 @@
       </div>
     </div>
   </div>
-  <script>
-    $(function () {
-      var uname = localStorage.getItem('USERID');
-      $('.uname').html(uname);
-      
-      var classArr = ['软信1班','移动1班','网销1班'];
-      var liContent = '';
-      for (var i=0; i < classArr.length; i ++) {
-        liContent += '<li>' + classArr[i] + '</li>';
-      }
-      $('.class-list').html(liContent);
 
-      var classItem = $('.class-list li');
-      $(classItem).click(function () {
-        classItem.removeClass('active');
-        $(this).addClass('active');
-      })
-      
-    })
-  </script>
+  <!-- 编辑Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"><span class="stu-title"></span>学生信息</h4>
+      </div>
+      <div class="modal-body stu-modal-body">
+        <div class="col-md-12">
+          <div class="col-md-4">
+              <div class="e-tr">
+                  <label class="e-td" for="">姓名</label>
+                  <input class="e-td e-input e-name" type="text" placeholder="">
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="e-tr">
+                  <label class="e-td" for="">学号</label>
+                  <input class="e-td e-input" type="text" placeholder="">
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="e-tr">
+                  <label class="e-td" for="">手机号</label>
+                  <input class="e-td e-input" type="text" placeholder="">
+              </div>
+          </div>
+          <div class="col-md-4" role="form">
+              <div class="e-tr">
+                  <!-- <label class="e-td" for="">性别</label><input class="e-td e-input" type="text" placeholder="新蓝剑"> -->
+                  <label class="e-td" for="">性别</label>
+                  <select id="u-select" class="e-select" style="background-color: #fff;">
+                      <option value="m">男</option>
+                      <option value="f">女</option>
+                  </select>
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="e-tr">
+                  <label class="e-td" for="">年龄</label>
+                  <input class="e-td e-input" type="text" placeholder="">
+              </div>
+          </div>
+          <div class="col-md-4">
+              <div class="e-tr">
+                  <label class="e-td" for="">专&nbsp;&nbsp;&nbsp;&nbsp;业</label>
+                  <input class="e-td e-input" type="text" placeholder="">
+              </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
 </body>
-
+<script src="./js/index.js"></script>
 </html>

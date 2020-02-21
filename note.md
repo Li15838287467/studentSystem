@@ -5,3 +5,19 @@
  - 添加代码：git add .
  - 暂存：git commit -m ' '
  - 提交：git push
+
+ #### 事件代理（事件委托）
+ ``` js
+    //原生JS写法
+    var ul = document.getElementsByClassName('class-list')[0];
+    ul.addEventListener('click', function(e) {
+      if(e.target && e.target.nodeName.toUpperCase() == 'Li') {
+        alert('li 被点击')
+      }
+    })
+    
+    // JQ的写法
+    $('.class-list').delegate('li', 'click', function() {
+
+    })
+ ```

@@ -6,8 +6,8 @@
 }
 .n-header-wrapper,
 .navbar-wrapper {
-    height: 100%;
-    min-width: 1024px;
+  height: 100%;
+  min-width: 1024px;
 }
 .jx-logo {
 	height: 80px;
@@ -45,14 +45,13 @@
 .mian-row {
   height: 100%;
 }
+/* 顶部导航栏end */
+/* 左侧start */
 .left {
   padding: 0px;
   background: rgb(238, 238, 238);
   /* border-right: solid 1px #ddd !important; */
   height: 100vh;
-}
-.right {
-  padding: 0;
 }
 .current-user {
 	text-align: center;
@@ -73,5 +72,133 @@
 }
 .class-list li.active {
 	background-color: #fff;
-	
+	color: rgb(0, 149, 218);
+	border-right: none;
+}
+/* 右侧start */
+.right {
+  padding: 0;
+}
+.right-header {
+	height: 38px;
+	line-height: 38px;
+	background-color: rgb(245, 245, 245);
+	color: rgb(160, 160, 160);
+	font-size: 14px;
+	padding-left: 20px;
+}
+.right-info {
+	height: 60px;
+}
+.right-info .right-class-name {
+	color: rgb(0, 149, 218);
+	font: bold 18px / 60px '微软雅黑';
+}
+.searchBox {
+	padding-top: 15px;
+	padding-right: 24px;
+	width: 320px;
+}
+.searchInput {
+	height: 30px;
+	width: 244px;
+	overflow: hidden;
+}
+.searchInput input {
+	width: 243px;
+	height: 30px;
+	border: 1px solid #ddd;
+	text-indent: 10px;
+}
+.searchBtn {
+	height: 30px;
+	width: 36px;
+	margin-right: 10px;
+}
+.searchBtn input {
+	background: url(../image/search.jpg);
+	width: 36px;
+	height: 30px;
+	border: none;
+	text-indent: -999px;
+}
+.right-btns {
+	border: 1px solid #ddd;
+	padding: 20px;
+	margin-bottom: 20px;
+}
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+}
+.table>thead {
+	background: rgb(241, 244, 249);	
+}
+.table tr td, 
+.table tr th {
+  font: 18px/37px "微软雅黑";
+  color: #808080;
+}
+.btn-del {
+  margin-left: 10px;
+}
+/* 布局end */
+/* 编辑Modal */
+#myModal .modal-dialog {
+  width: 800px;
+}
+.e-tr {
+	width: 100%;
+	height: 40px;
+	line-height: 40px;
+	vertical-align: middle;
+	color: #678090;
+	padding: 0 10px;
+	margin-top: 20px;
+	}
+.e-tr label {
+	padding-left: 10px;
+	padding-right: 10px;
+	height: 40px;
+	margin: 0;
+	background: #fff;
+	font-weight: normal;
+	vertical-align: middle;
+}
+.e-tr input {
+  width: 110px;
+  height: 40px;
+  text-indent: 10px;
+  font-size: 16px;
+  border: none;
+  outline: none;
+  padding: 0;
+  vertical-align: middle;
+  border: 1px solid #ccc;
+}
+.e-tr input:focus {
+  border: 1px solid #56a5f1;
+  border-radius: 4px;
+  outline: 1px solid #56a5f1;
+}
+.e-select {
+  width: 110px;
+  height: 40px;
+  vertical-align: middle;
+  border-radius: 0px;
+  background: #fff;
+  border: 1px solid #ccc;
+  appearance: none;
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  background: url(../image/arrow.png) no-repeat scroll right center transparent;
+  padding-right: 14px;
+  text-indent: 10px;
+}
+.u-infors .col-md-4, .u-infors .col-md-9 {
+  padding: 0;
+}
+.stu-modal-body {
+  height: 160px;
 }
