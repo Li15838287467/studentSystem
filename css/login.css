@@ -10,8 +10,8 @@ body {
 .logo {
 	width: 240px;
 	height: 35px;
-	padding-left: 35px;
-	padding-top: 35px;
+	padding-left: 50px;
+	margin-top: 35px;
 	font: 30px/35px '黑体';
 	/* 文字首行缩进
 	text-indent: 40px; */
@@ -83,4 +83,10 @@ body {
 	color: #888;
 	padding-top: 20px;
 	text-align: center;
+}
+@media only screen and (max-width: 1024px) {
+	body {
+		display: none;
+	}
+
 }

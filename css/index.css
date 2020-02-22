@@ -169,7 +169,7 @@
 .e-tr input {
   width: 110px;
   height: 40px;
-  text-indent: 10px;
+  text-indent: 5px;
   font-size: 16px;
   border: none;
   outline: none;
@@ -201,4 +201,10 @@
 }
 .stu-modal-body {
   height: 160px;
+}
+@media only screen and (max-width: 1024px) {
+	.header,.main {
+		display: none;
+	}
+
 }

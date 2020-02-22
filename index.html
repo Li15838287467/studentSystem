@@ -14,7 +14,7 @@
   <script src="./js/json.js"></script>
 </head>
 <body>
-	<div class="navbar navbar-default n-header" role="navigation">
+	<div class="navbar navbar-default n-header header" role="navigation">
     <div class="container-fluid n-header-wrapper">
       <a href="#" class="navbar-brand jx-logo">
         <img src="./image/logo2.jpg" alt="学生管理系统">
@@ -56,7 +56,7 @@
     <div class="container-fluid main-center">
       <div class="row main-row">
         <!-- 左侧start -->
-        <div class="col-md-2 left">
+        <div class="col-sm-2 col-md-2 col-lg-2 left">
           <div class="current-user">
             <span>当前用户:</span>
             <span class="uname"></span>
@@ -66,14 +66,14 @@
           </div>
         </div>
         <!-- 右侧start -->
-        <div class="col-md-10 right">
+        <div class="col-sm-10 col-md-10 col-lg-10 right">
           <div class="right-content">
             <!-- 导航栏 -->
             <div class="right-header"></div>
             <!-- 班级和搜索框 -->
             <div class="right-info">
-              <div class="col-md-8 right-class-name"></div>
-              <div class="col-md-4">
+              <div class="col-sm-8 col-md-8 col-lg-8 right-class-name"></div>
+              <div class="col-sm-4 col-md-4 col-lg-4">
                 <div class="searchBox fr">
                   <div class="searchInput fl">
                     <input type="text" placeholder="用户名">
@@ -85,16 +85,16 @@
               </div>
             </div>
             <!-- 按钮组 -->
-            <div class="col-md-12">
+            <div class="col-sm-12 col-md-12 col-lg-12">
               <div class="right-btns">
-                <button class="btn btn-default">添加</button>
+                <button class="btn btn-default add-stu-btn" data-toggle='modal' data-target='#myModal'>添加</button>
                 <button class="btn btn-info">编辑</button>
                 <button class="btn btn-danger">删除</button>
                 <button class="btn btn-success">账号授权</button>
               </div>
             </div>
             <!-- 学生信息 -->
-            <div class="col-md-12">
+            <div class="col-sm-12 col-md-12 col-lg-12">
               <table class="table table-hover">
                 <thead>
                   <tr>
@@ -166,35 +166,35 @@
     </div>
   </div>
 
-  <!-- 编辑Modal -->
+  <!-- 新增&编辑Modal -->
 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel"><span class="stu-title"></span>学生信息</h4>
+        <h4 class="modal-title" id="myModalLabel"><span class="stu-title">新增</span>学生信息</h4>
       </div>
       <div class="modal-body stu-modal-body">
-        <div class="col-md-12">
-          <div class="col-md-4">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="col-sm-4 col-md-4 col-lg-4">
               <div class="e-tr">
                   <label class="e-td" for="">姓名</label>
                   <input class="e-td e-input e-name" type="text" placeholder="">
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4 col-md-4 col-lg-4">
               <div class="e-tr">
                   <label class="e-td" for="">学号</label>
-                  <input class="e-td e-input" type="text" placeholder="">
+                  <input class="e-td e-input e-sno" type="text" placeholder="">
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4 col-md-4 col-lg-4">
               <div class="e-tr">
                   <label class="e-td" for="">手机号</label>
-                  <input class="e-td e-input" type="text" placeholder="">
+                  <input class="e-td e-input e-tel" type="text" placeholder="">
               </div>
           </div>
-          <div class="col-md-4" role="form">
+          <div class="col-sm-4 col-md-4 col-lg-4" role="form">
               <div class="e-tr">
                   <!-- <label class="e-td" for="">性别</label><input class="e-td e-input" type="text" placeholder="新蓝剑"> -->
                   <label class="e-td" for="">性别</label>
@@ -204,42 +204,43 @@
                   </select>
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4 col-md-4 col-lg-4">
               <div class="e-tr">
                   <label class="e-td" for="">年龄</label>
-                  <input class="e-td e-input" type="text" placeholder="">
+                  <input class="e-td e-input e-age" type="text" placeholder="">
               </div>
           </div>
-          <div class="col-md-4">
+          <div class="col-sm-4 col-md-4 col-lg-4">
               <div class="e-tr">
                   <label class="e-td" for="">专&nbsp;&nbsp;&nbsp;&nbsp;业</label>
-                  <input class="e-td e-input" type="text" placeholder="">
+                  <input class="e-td e-input e-major" type="text" placeholder="">
               </div>
           </div>
         </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary addEditBtn">确定</button>
       </div>
     </div>
   </div>
 </div>
 
-<!-- Modal -->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<!-- 删除Modal -->
+<div class="modal fade" id="delModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="myModalLabel">提示</h4>
       </div>
       <div class="modal-body">
-        ...
+        <p>确定要删除吗？</p>
+        <p>此操作不可恢复</p>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+        <button type="button" class="btn btn-primary del-sure">确定</button>
       </div>
     </div>
   </div>
